@@ -1,0 +1,18 @@
+# 관리자 권한
+sudo: required
+# 언어(플랫폼) 선택
+language: generic
+# 도커환경 구성(travis 이미지 빌드 및 컨테이너)
+services:
+  - docker
+# 스크립트 실행 할 수 있는 환경 설정(이미지 생성)
+before_install:
+  - echo "start Creating an image with dockerfile"
+  - docker build -t dk99521/docker-react-app -f Dockfile.dev
+
+# 실행할 스크립트 (컨테이너 실행)
+script:
+  - docker run -e CI=true dk99521/docker-react-app npm run test -- --coverage
+# 테스트 성공 후 할 일
+after_success:
+  - echo "Test Success"
