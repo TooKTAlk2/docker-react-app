@@ -16,6 +16,7 @@ CMD ["npm","run","build"]
 # Run stage
 # execute nginx
 FROM nginx
+EXPOSE 80
 
 # build
 COPY --from=builder /usr/src/app/build /usr/share/nginx/html
