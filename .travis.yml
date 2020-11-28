@@ -8,7 +8,7 @@ services:
 # 스크립트 실행 할 수 있는 환경 설정(이미지 생성)
 before_install:
   - echo "start Creating an image with dockerfile"
-  - docker build -t dk99521/docker-react-app -f Dockerfile.dev
+  - docker build -t dk99521/docker-react-app -f Dockerfile.dev .
 
 # 실행할 스크립트 (컨테이너 실행)
 script:
